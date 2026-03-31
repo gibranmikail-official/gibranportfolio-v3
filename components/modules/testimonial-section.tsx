@@ -9,7 +9,6 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Komponen untuk efek scramble
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);

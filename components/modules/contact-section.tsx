@@ -16,7 +16,6 @@ import {
 } from "react-icons/fa";
 gsap.registerPlugin(ScrollTrigger);
 
-// Komponen untuk efek scramble
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -62,7 +61,6 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-// Komponen untuk efek typing
 const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -113,7 +111,6 @@ const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: an
     );
 };
 
-// Komponen untuk efek scramble pada hover (untuk email) - FIXED with proper typing
 const ScrambleTextOnHover = ({
     text,
     as: Component = "span",
@@ -194,7 +191,6 @@ export function ContactSection() {
         message: "",
     });
 
-    // Trigger effects on scroll
     useEffect(() => {
         if (!sectionRef.current) return;
 

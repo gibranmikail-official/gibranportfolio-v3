@@ -55,7 +55,6 @@ export function PrinciplesSection() {
         if (!sectionRef.current || !headerRef.current || !principlesRef.current) return;
 
         const ctx = gsap.context(() => {
-            // Header slide in
             gsap.from(headerRef.current, {
                 x: -60,
                 opacity: 0,
@@ -68,7 +67,6 @@ export function PrinciplesSection() {
                 },
             });
 
-            // Each principle slides in from its aligned side
             const articles = principlesRef.current?.querySelectorAll("article");
             articles?.forEach((article, index) => {
                 const isRight = principles[index].align === "right";

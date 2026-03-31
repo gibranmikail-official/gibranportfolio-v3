@@ -1,0 +1,311 @@
+export interface Project {
+    id: string;
+    slug: string;
+    title: string;
+    service: string;
+    description: string;
+    thumbnail: string;
+    gallery: string[];
+    tags: string[];
+    fullDescription: string;
+    challenges: string;
+    outcome: string;
+}
+
+export const projects: Project[] = [
+    {
+        id: "project1",
+        slug: "dashboard-360-gis",
+        title: "Dashboard 360 - GIS",
+        service: "UI/UX Design",
+        description: "Dashboard 360 – Interactive Data Visualization Platform for National Monitoring",
+        thumbnail: "/01-projects/01-d360/d360.png",
+        gallery: [
+            "/01-projects/01-d360/d360-1.png",
+            "/01-projects/01-d360/d360-2.png",
+            "/01-projects/01-d360/d360-3.png",
+            "/01-projects/01-d360/d360-4.png",
+            "/01-projects/01-d360/d360-5.png",
+            "/01-projects/01-d360/d360-6.png",
+            "/01-projects/01-d360/d360-7.png",
+            "/01-projects/01-d360/d360-8.png",
+            "/01-projects/01-d360/d360-9.png",
+            "/01-projects/01-d360/d360-10.png",
+            "/01-projects/01-d360/d360-11.png",
+            "/01-projects/01-d360/d360-12.png",
+            "/01-projects/01-d360/d360-13.png",
+            "/01-projects/01-d360/d360-14.png",
+            "/01-projects/01-d360/d360-15.png",
+        ],
+        tags: ["React.JS", "Node.JS", "BNPB", "BMKG", "BPS", "PostgreSQL", "figma"],
+        fullDescription:
+            "Dashboard 360 adalah platform visualisasi data interaktif berbasis web yang saya kembangkan untuk memantau dan menganalisis data Food Estate, bencana alam, perumahan rakyat, dan hasil survei masyarakat di seluruh wilayah Indonesia. Dashboard ini menyajikan informasi berbasis peta, grafik, dan tabel yang responsif dan user-friendly. Peran Saya dalam Proyek Ini adalah Mendesain dan mengembangkan seluruh tampilan antarmuka pengguna (UI)",
+        challenges:
+            "Mengelola dan menyajikan data dalam jumlah besar dari berbagai kategori secara bersamaan menjadi tantangan utama, terutama dalam menjaga keterbacaan dan performa visualisasi. Selain itu, diperlukan desain UI yang mampu mengakomodasi berbagai jenis data (peta, grafik, dan tabel) agar tetap konsisten, responsif, serta mudah dipahami oleh pengguna dengan berbagai latar belakang.",
+        outcome:
+            "Dashboard berhasil menghadirkan tampilan visualisasi data yang interaktif, responsif, dan user-friendly. Informasi dapat diakses dengan mudah melalui kombinasi peta, grafik, dan tabel yang terstruktur dengan baik, sehingga membantu pengguna dalam memahami data secara lebih cepat dan efektif. Desain UI yang diterapkan juga meningkatkan keterlibatan pengguna serta kemudahan dalam eksplorasi data.",
+    },
+    {
+        id: "project2",
+        slug: "horas-inang-irma-hutabarat",
+        title: "Horas Inang - Irma Hutabarat",
+        service: "Video Editor & Live Stream Operator",
+        description: "Multimedia Production & Live Streaming for YouTube Content",
+        thumbnail: "/01-projects/02-ythi/YTHS-3.png",
+        gallery: [
+            "/01-projects/02-ythi/YTHS-3.png",
+            "/01-projects/02-ythi/YTHS-1.png",
+            "/01-projects/02-ythi/YTHS-2.png",
+            "/01-projects/02-ythi/YTHS-3.png",
+            "/01-projects/02-ythi/YTHS-4.jpg",
+            "/01-projects/02-ythi/YTHS-5.jpg",
+            "/01-projects/02-ythi/YTHS-6.jpg",
+            "/01-projects/02-ythi/YTHS-7.jpg",
+        ],
+        tags: ["Adobe Premiere", "Adobe Photoshop", "Capcut", "OBS Studio", "Canva"],
+        fullDescription:
+            "Proyek produksi multimedia yang berfokus pada pembuatan konten video berkualitas tinggi dan pengelolaan sesi live streaming untuk penayangan di YouTube. Menangani seluruh alur kerja produksi video, mulai dari pra-produksi hingga pasca-produksi, guna memastikan penyampaian cerita visual yang menarik dan eksekusi siaran langsung yang lancar.",
+        challenges:
+            "Mengelola alur produksi dari awal hingga akhir membutuhkan koordinasi yang baik antara perencanaan konten, kesiapan teknis, dan eksekusi saat live streaming. Tantangan utama meliputi menjaga kualitas video dan audio secara konsisten, mengantisipasi potensi gangguan teknis selama siaran langsung, serta memastikan transisi antar elemen visual berjalan mulus tanpa mengganggu pengalaman penonton.",
+        outcome:
+            "Proyek berhasil menghasilkan konten video yang berkualitas tinggi serta live streaming yang berjalan lancar dan stabil di YouTube. Alur produksi yang terstruktur memungkinkan penyampaian konten yang lebih konsisten, profesional, dan menarik bagi audiens, sekaligus meningkatkan kualitas pengalaman penonton selama sesi siaran langsung.",
+    },
+    {
+        id: "project3",
+        slug: "ggenk-community",
+        title: "GGENK Community",
+        service: "UI/UX & Front-end Development",
+        description: "Modern UI/UX website dengan desain responsif dan performa tinggi.",
+        thumbnail: "/01-projects/03-ggenk/gg.png",
+        gallery: [
+            "/01-projects/03-ggenk/gg.png",
+            "/01-projects/03-ggenk/gg-01.png",
+            "/01-projects/03-ggenk/gg-02.png",
+            "/01-projects/03-ggenk/gg-03.png",
+            "/01-projects/03-ggenk/gg-04.png",
+            "/01-projects/03-ggenk/gg-05.png",
+            "/01-projects/03-ggenk/gg-06.png",
+            "/01-projects/03-ggenk/gg-07.png",
+            "/01-projects/03-ggenk/gg-08.png",
+            "/01-projects/03-ggenk/gg-09.png",
+            "/01-projects/03-ggenk/gg-10.png",
+            "/01-projects/03-ggenk/gg-11.png",
+            "/01-projects/03-ggenk/gg-12.png",
+            "/01-projects/03-ggenk/gg-13.png",
+        ],
+        tags: ["VS Code", "React", "Tailwind.CSS", "Framer Motion", "Github", "Netlify"],
+        fullDescription:
+            "Pengembangan website GGENK sebagai platform digital yang menampilkan identitas brand sekaligus meningkatkan pengalaman pengguna melalui desain modern dan interaktif. Proyek ini mencakup perancangan UI/UX yang berfokus pada kemudahan navigasi, visual yang konsisten, serta implementasi frontend menggunakan teknologi modern untuk memastikan performa optimal, responsivitas di berbagai perangkat, dan pengalaman pengguna yang seamless.",
+        challenges:
+            "Menggabungkan estetika desain dengan performa website menjadi tantangan utama, terutama dalam menjaga konsistensi tampilan di berbagai ukuran layar. Selain itu, optimasi loading time, pengelolaan asset visual, serta implementasi animasi interaktif tanpa mengorbankan performa juga menjadi fokus penting dalam pengembangan.",
+        outcome:
+            "Website berhasil menghadirkan tampilan profesional dengan user experience yang intuitif dan responsif di berbagai perangkat. Peningkatan performa dan optimasi frontend menghasilkan waktu loading yang lebih cepat, serta meningkatkan engagement pengguna melalui interaksi visual yang lebih menarik dan navigasi yang efisien.",
+    },
+    {
+        id: "project4",
+        slug: "yuda-purboyo-sunu",
+        title: "Yuda Purboyo Sunu",
+        service: "Discord Server Development",
+        description: "Yuda Purboyo Sunu Discord – Structured Community Server",
+        thumbnail: "/01-projects/04-yps/yps.png",
+        gallery: [
+            "/01-projects/04-yps/yps.png",
+            "/01-projects/04-yps/yps-01.png",
+            "/01-projects/04-yps/yps-02.png",
+            "/01-projects/04-yps/yps-03.png",
+            "/01-projects/04-yps/yps-04.png",
+            "/01-projects/04-yps/yps-05.png",
+            "/01-projects/04-yps/yps-06.png",
+            "/01-projects/04-yps/yps-07.png",
+            "/01-projects/04-yps/yps-08.png",
+            "/01-projects/04-yps/yps-09.png",
+            "/01-projects/04-yps/yps-10.png",
+            "/01-projects/04-yps/yps-11.png",
+            "/01-projects/04-yps/yps-12.png",
+            "/01-projects/04-yps/yps-13.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "Server Discord resmi komunitas Yuda Purboyo Sunu yang dibangun dengan sistem komunitas yang rapi dan terstruktur. Server ini dilengkapi dengan berbagai fitur otomatisasi seperti auto-role, bot moderasi, sistem notifikasi, serta manajemen channel yang tertata untuk memudahkan interaksi antar member.",
+        challenges: "-",
+        outcome: "-",
+    },
+    {
+        id: "project5",
+        slug: "quackers-by-yummy-tails",
+        title: "Quackers by Yummy Tails",
+        service: "Discord Server Development",
+        description: "Quackers Discord Server – Automated Community System",
+        thumbnail: "/01-projects/05-yummytails/YT.png",
+        gallery: [
+            "/01-projects/05-yummytails/YT.png",
+            "/01-projects/05-yummytails/YT-01.png",
+            "/01-projects/05-yummytails/YT-02.png",
+            "/01-projects/05-yummytails/YT-03.png",
+            "/01-projects/05-yummytails/YT-04.png",
+            "/01-projects/05-yummytails/YT-05.png",
+            "/01-projects/05-yummytails/YT-06.png",
+            "/01-projects/05-yummytails/YT-07.png",
+            "/01-projects/05-yummytails/YT-08.png",
+            "/01-projects/05-yummytails/YT-09.png",
+            "/01-projects/05-yummytails/YT-10.png",
+            "/01-projects/05-yummytails/YT-11.png",
+            "/01-projects/05-yummytails/YT-12.png",
+            "/01-projects/05-yummytails/YT-13.png",
+            "/01-projects/05-yummytails/YT-14.png",
+            "/01-projects/05-yummytails/YT-15.png",
+            "/01-projects/05-yummytails/YT-16.png",
+            "/01-projects/05-yummytails/YT-17.png",
+            "/01-projects/05-yummytails/YT-18.png",
+            "/01-projects/05-yummytails/YT-19.png",
+            "/01-projects/05-yummytails/YT-20.png",
+            "/01-projects/05-yummytails/YT-21.png",
+            "/01-projects/05-yummytails/YT-22.png",
+            "/01-projects/05-yummytails/YT-23.png",
+            "/01-projects/05-yummytails/YT-24.png",
+            "/01-projects/05-yummytails/YT-25.png",
+            "/01-projects/05-yummytails/YT-26.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "Server Discord Quackers — freshly baked & siap dipakai! Dibangun dengan sistem otomatisasi modern untuk pengalaman komunitas yang rapi, nyaman, dan interaktif. Mulai dari auto-role, custom bot, hingga pengelolaan channel yang efisien — semuanya diracik khusus agar komunitas Yummy Tails terasa lebih hidup.",
+        challenges: "-",
+        outcome: "-",
+    },
+    {
+        id: "project6",
+        slug: "juan-herman-:-jucrod",
+        title: "Juan Herman : JUCROD",
+        service: "Discord Server Development",
+        description: "JUCROD – Gaming Community Hub",
+        thumbnail: "/01-projects/06-jucrod/JH.png",
+        gallery: [
+            "/01-projects/06-jucrod/JH.png",
+            "/01-projects/06-jucrod/JH-01.png",
+            "/01-projects/06-jucrod/JH-02.png",
+            "/01-projects/06-jucrod/JH-03.png",
+            "/01-projects/06-jucrod/JH-04.png",
+            "/01-projects/06-jucrod/JH-05.png",
+            "/01-projects/06-jucrod/JH-06.png",
+            "/01-projects/06-jucrod/JH-07.png",
+            "/01-projects/06-jucrod/JH-08.png",
+            "/01-projects/06-jucrod/JH-09.png",
+            "/01-projects/06-jucrod/JH-10.png",
+            "/01-projects/06-jucrod/JH-11.png",
+            "/01-projects/06-jucrod/JH-12.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "JUCROD adalah server komunitas untuk para gamer dan penonton Juan Herman yang ingin main bareng, ngobrol santai, dan bangun komunitas yang solid. Server ini dirancang sebagai tempat nongkrong yang nyaman, dengan sistem yang rapi untuk mendukung interaksi, mabar, event, dan aktivitas komunitas sehari-hari.",
+        challenges: "-",
+        outcome: "-",
+    },
+    {
+        id: "project7",
+        slug: "indosky",
+        title: "IndoSky",
+        service: "Discord Server Development",
+        description: "IndoSky Discord – Roblox Community Server",
+        thumbnail: "/01-projects/07-indosky/IS.png",
+        gallery: [
+            "/01-projects/07-indosky/IS-23.png",
+            "/01-projects/07-indosky/IS-24.png",
+            "/01-projects/07-indosky/IS-25.png",
+            "/01-projects/07-indosky/IS-26.png",
+            "/01-projects/07-indosky/IS-27.png",
+            "/01-projects/07-indosky/IS-13.png",
+            "/01-projects/07-indosky/IS-14.png",
+            "/01-projects/07-indosky/IS-15.png",
+            "/01-projects/07-indosky/IS-16.png",
+            "/01-projects/07-indosky/IS-17.png",
+            "/01-projects/07-indosky/IS-1.png",
+            "/01-projects/07-indosky/IS-2.png",
+            "/01-projects/07-indosky/IS-3.png",
+            "/01-projects/07-indosky/IS-4.png",
+            "/01-projects/07-indosky/IS-5.png",
+            "/01-projects/07-indosky/IS-6.png",
+            "/01-projects/07-indosky/IS-7.png",
+            "/01-projects/07-indosky/IS-8.png",
+            "/01-projects/07-indosky/IS-9.png",
+            "/01-projects/07-indosky/IS-10.png",
+            "/01-projects/07-indosky/IS-11.png",
+            "/01-projects/07-indosky/IS-12.png",
+            "/01-projects/07-indosky/IS-18.png",
+            "/01-projects/07-indosky/IS-19.png",
+            "/01-projects/07-indosky/IS-20.png",
+            "/01-projects/07-indosky/IS-21.png",
+            "/01-projects/07-indosky/IS-22.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "Server Discord resmi komunitas Roblox IndoSky dengan lebih dari 2000+ member aktif! Dilengkapi sistem otomatisasi canggih seperti auto-role, bot custom, ticketing system, hingga manajemen channel yang rapi. Tempat terbaik untuk berkumpul, berdiskusi, dan menikmati pengalaman komunitas Roblox yang seru dan terorganisir.",
+        challenges: "-",
+        outcome: "-",
+    },
+    {
+        id: "project8",
+        slug: "beyond-9-to-5",
+        title: "Beyond 9 To 5",
+        service: "Discord Server Development",
+        description: "Freelancer Discord – Community Server System",
+        thumbnail: "/01-projects/08-b925/b925-1.png",
+        gallery: [
+            "/01-projects/08-b925/b925-1.png",
+            "/01-projects/08-b925/b925-2.png",
+            "/01-projects/08-b925/b925-3.png",
+            "/01-projects/08-b925/b925-4.png",
+            "/01-projects/08-b925/b925-5.png",
+            "/01-projects/08-b925/b925-6.png",
+            "/01-projects/08-b925/b925-7.png",
+            "/01-projects/08-b925/b925-8.png",
+            "/01-projects/08-b925/b925-9.png",
+            "/01-projects/08-b925/b925-10.png",
+            "/01-projects/08-b925/b925-11.png",
+            "/01-projects/08-b925/b925-12.png",
+            "/01-projects/08-b925/b925-13.png",
+            "/01-projects/08-b925/b925-14.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "Pengembangan Discord server untuk komunitas freelancer dengan 5000+ member. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir. ",
+        challenges:
+            "Mengelola interaksi anggota dalam skala besar sambil menjaga stabilitas server sangatlah penting. Menerapkan pembatasan laju dan kueri basis data yang efisien untuk menangani operasi bersamaan.",
+        outcome:
+            "Server tersebut berkembang hingga memiliki lebih dari 5000 anggota aktif dengan tingkat retensi 90%. Moderasi otomatis mengurangi beban kerja admin hingga 70%.",
+    },
+    {
+        id: "project9",
+        slug: "nimbus-bobax",
+        title: "Nimbus Bobax",
+        service: "Discord Server Development",
+        description: "Nimbus Bobax – Robux Top-Up Server",
+        thumbnail: "/01-projects/09-NimbusBobax/NB.png",
+        gallery: [
+            "/01-projects/09-NimbusBobax/NB.png",
+            "/01-projects/09-NimbusBobax/NB.png",
+            "/01-projects/09-NimbusBobax/NB-01.png",
+            "/01-projects/09-NimbusBobax/NB-02.png",
+            "/01-projects/09-NimbusBobax/NB-03.png",
+            "/01-projects/09-NimbusBobax/NB-04.png",
+            "/01-projects/09-NimbusBobax/NB-05.png",
+            "/01-projects/09-NimbusBobax/NB-06.png",
+            "/01-projects/09-NimbusBobax/NB-07.png",
+            "/01-projects/09-NimbusBobax/NB-08.png",
+        ],
+        tags: ["Discord", "Webhook", "BOTS"],
+        fullDescription:
+            "Server Discord Nimbus Bobax digunakan sebagai tempat layanan top up Robux dengan sistem yang tertata dan mudah digunakan. Server ini dilengkapi dengan otomatisasi dasar untuk mendukung proses akses market, pengelolaan role, serta komunikasi antara admin dan user agar transaksi berjalan lebih rapi dan efisien.",
+        challenges: "-",
+        outcome: "-",
+    },
+];
+
+// Helper function to get project by slug
+export function getProjectBySlug(slug: string): Project | undefined {
+    return projects.find((project) => project.slug === slug);
+}
+
+// Helper function to get all project slugs for static generation
+export function getAllProjectSlugs(): string[] {
+    return projects.map((project) => project.slug);
+}

@@ -192,7 +192,6 @@ const workExperienceData: Experience[] = [
     },
 ];
 
-// Komponen untuk efek scramble
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -238,7 +237,6 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-// Komponen untuk render content education
 const EducationContent = ({ data, trigger }: { data: Education; trigger: number }) => (
     <>
         <h3 className="font-bebas text-xl md:text-2xl text-accent mb-2 break-words">
@@ -266,7 +264,6 @@ const EducationContent = ({ data, trigger }: { data: Education; trigger: number 
     </>
 );
 
-// Komponen untuk render content experience
 const ExperienceContent = ({ data, trigger }: { data: Experience; trigger: number }) => (
     <>
         <h3 className="font-bebas text-xl md:text-2xl text-accent mb-2 break-words">

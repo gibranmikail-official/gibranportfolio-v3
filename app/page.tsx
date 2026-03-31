@@ -1,14 +1,14 @@
-import { HeroSection } from "@/Modules/hero-section";
-import AboutSection from "@/Modules/about-section";
-import SkillsSection from "@/Modules/skills-section";
-import { AchievementsSection } from "@/Modules/achievements-section";
-import { ServicesSection } from "@/Modules/services-section";
-import { ProjectSection } from "@/Modules/project-section";
-import { PrinciplesSection } from "@/Modules/principles-section";
-import TestimonialSection from "@/Modules/testimonial-section";
-import { ContactSection } from "@/Modules/contact-section";
-import { FooterSection } from "@/Modules/footer-section";
-import { SideNav } from "@/Modules/side-nav";
+import { HeroSection } from "@/components/modules/hero-section";
+import AboutSection from "@/components/modules/about-section";
+import SkillsSection from "@/components/modules/skills-section";
+import { AchievementsSection } from "@/components//modules/achievements-section";
+import { ServicesSection } from "@/components/modules/services-section";
+import { ProjectSection } from "@/components/modules/project-section";
+import { PrinciplesSection } from "@/components/modules/principles-section";
+import TestimonialSection from "@/components/modules/testimonial-section";
+import { ContactSection } from "@/components/modules/contact-section";
+import { FooterSection } from "@/components/footer-section";
+import { SideNav } from "@/components/side-nav";
 
 export default function Page() {
     return (

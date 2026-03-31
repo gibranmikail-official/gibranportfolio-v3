@@ -10,7 +10,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Komponen untuk efek scramble
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -56,7 +55,6 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-// Komponen untuk efek typing dengan trigger on scroll
 const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: any; speed?: number }) => {
     const [displayText, setDisplayText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -64,7 +62,6 @@ const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: an
     const prevTriggerRef = useRef(trigger);
 
     useEffect(() => {
-        // Reset typing when trigger changes
         if (prevTriggerRef.current !== trigger) {
             prevTriggerRef.current = trigger;
 
@@ -141,21 +138,17 @@ export function HeroSection() {
 
         const section = sectionRef.current;
 
-        // Create ScrollTrigger untuk memicu efek typing saat section hero masuk viewport
         const trigger = ScrollTrigger.create({
             trigger: section,
             start: "top 80%",
             onEnter: () => {
-                // Trigger efek typing dan scramble
                 setEffectTrigger((prev) => prev + 1);
             },
             onEnterBack: () => {
-                // Trigger ulang saat scroll kembali ke atas
                 setEffectTrigger((prev) => prev + 1);
             },
         });
 
-        // Parallax effect untuk konten
         const ctx = gsap.context(() => {
             if (contentRef.current) {
                 gsap.to(contentRef.current, {
@@ -246,7 +239,7 @@ export function HeroSection() {
             {/* Floating info tag */}
             <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
                 <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Version 3.0.0
+                    Version 3.0.1
                 </div>
             </div>
         </section>
