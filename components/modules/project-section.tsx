@@ -41,7 +41,6 @@ export function ProjectSection() {
             setIsCollapsing(true);
             setShowAllProjects(false);
         } else {
-            // Expanding: just update state
             setShowAllProjects(true);
         }
     }, [showAllProjects]);

@@ -9,7 +9,6 @@ import { IconType } from "react-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Better type for ScrambleTextOnHover component
 interface ScrambleTextOnHoverProps {
     text: string;
     as?: ElementType;
@@ -17,7 +16,6 @@ interface ScrambleTextOnHoverProps {
     className?: string;
 }
 
-// Komponen untuk efek scramble pada hover
 const ScrambleTextOnHover = ({
     text,
     as: Component = "span",
@@ -67,7 +65,6 @@ const ScrambleTextOnHover = ({
         };
     }, [isHovering, text]);
 
-    // Type-safe component rendering with proper props spreading
     const ComponentProps = {
         className,
         onMouseEnter: () => setIsHovering(true),
@@ -93,7 +90,6 @@ export function FooterSection() {
         { id: "projects", label: "Projects" },
     ];
 
-    // Proper typing for social links
     interface SocialLink {
         icon: IconType;
         url: string;
@@ -139,7 +135,6 @@ export function FooterSection() {
         if (!sectionRef.current || !contentRef.current) return;
 
         const ctx = gsap.context(() => {
-            // Content fade up animation
             gsap.fromTo(
                 contentRef.current,
                 { y: 40, opacity: 0 },

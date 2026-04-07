@@ -191,7 +191,6 @@ const useGSAPAnimations = (
     }, [sectionRef, headerRef, filterRef, skillsContainerRef, setEffectTrigger]);
 };
 
-// Skill Item with Scramble Effect on hover
 const SkillItem = ({ skill, index, trigger }: { skill: Skill; index: number; trigger: number }) => {
     return (
         <div
@@ -220,7 +219,6 @@ const SkillItem = ({ skill, index, trigger }: { skill: Skill; index: number; tri
     );
 };
 
-// Category Filter with Scramble Effect on hover
 const CategoryFilter = ({
     categories,
     activeCategory,
@@ -250,7 +248,6 @@ const CategoryFilter = ({
                 const count = getCategoryCount(cat, skills);
                 const isActive = activeCategory === cat;
                 const hoverTriggerValue = hoverTrigger[cat] || 0;
-                // Combine scroll trigger and hover trigger for scramble effect
                 const effectiveTrigger = trigger + hoverTriggerValue;
 
                 return (
@@ -298,7 +295,6 @@ export const SkillsSection = () => {
             ? skillsData
             : skillsData.filter((skill) => skill.category === activeCategory);
 
-    // Use custom hook for GSAP animations
     useGSAPAnimations(
         sectionRef as React.RefObject<HTMLElement | null>,
         headerRef as React.RefObject<HTMLDivElement | null>,
@@ -307,14 +303,12 @@ export const SkillsSection = () => {
         setEffectTrigger,
     );
 
-    // Animation for category
     useEffect(() => {
         const skillsContainer = skillsContainerRef.current;
         if (!skillsContainer) return;
 
         setIsAnimating(true);
 
-        // Step 1: Animate out - fade and scale down
         gsap.to(skillsContainer.children, {
             opacity: 0,
             scale: 0.95,
@@ -322,9 +316,7 @@ export const SkillsSection = () => {
             stagger: 0.02,
             ease: "power2.in",
             onComplete: () => {
-                // Small delay to ensure DOM updates
                 setTimeout(() => {
-                    // Step 2: Animate in with stagger
                     const skillItems = skillsContainer.children;
                     gsap.fromTo(
                         skillItems,

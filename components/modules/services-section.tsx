@@ -244,7 +244,6 @@ export function ServicesSection() {
     const gridRef = useRef<HTMLDivElement>(null);
     const [effectTrigger, setEffectTrigger] = useState<number>(0); // ✅ Fixed: added initial value
 
-    // Use custom hook for GSAP animations
     useGSAPAnimations(
         sectionRef as React.RefObject<HTMLElement | null>,
         headerRef as React.RefObject<HTMLDivElement | null>,
