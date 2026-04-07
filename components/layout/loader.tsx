@@ -54,7 +54,7 @@ const Loader = () => {
                 clipPath: "inset(0 0% 0 0)",
                 duration: 1.1,
             },
-            "-=0.4"
+            "-=0.4",
         );
 
         tl.fromTo(
@@ -64,7 +64,7 @@ const Loader = () => {
                 width: "100%",
                 duration: 1.2,
             },
-            "-=0.9"
+            "-=0.9",
         );
 
         tl.fromTo(
@@ -75,34 +75,36 @@ const Loader = () => {
                 duration: 1.4,
                 ease: "power1.out",
             },
-            "-=1.2"
+            "-=1.2",
         );
 
         tl.to(overlayRef.current, {
             opacity: 0,
+            pointerEvents: "none",
             duration: 0.7,
             delay: 0.1,
             onComplete: () => {
                 if (overlayRef.current) {
                     overlayRef.current.style.display = "none";
+                    overlayRef.current.style.visibility = "hidden";
                 }
                 window.dispatchEvent(new Event("loader-finished"));
                 document.body.style.overflow = "auto";
             },
         });
-        
+
         // Prevent scrolling while loader is active
         document.body.style.overflow = "hidden";
-        
+
         return () => {
             document.body.style.overflow = "auto";
-        }
+        };
     }, []);
 
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center overflow-hidden"
         >
             {/* Background elements matched with website theme */}
             <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
@@ -113,7 +115,7 @@ const Loader = () => {
                 <div className="relative">
                     <div
                         ref={strokeRef}
-                        className="text-5xl md:text-6xl font-[var(--font-bebas)] tracking-[0.08em] leading-none text-transparent select-none whitespace-nowrap"
+                        className="text-4xl sm:text-5xl md:text-6xl font-[var(--font-bebas)] tracking-[0.08em] leading-none text-transparent select-none whitespace-nowrap"
                         style={{
                             textShadow: `
                                 0 0 0.5px rgba(255,255,255,0.4),
@@ -121,16 +123,16 @@ const Loader = () => {
                             `,
                         }}
                     >
-                        GIBRAN MIKAIL
+                        AGENT G
                     </div>
 
                     <div className="absolute inset-0 pointer-events-none">
                         <div ref={maskFillRef} className="overflow-hidden inline-block whitespace-nowrap">
                             <div
                                 ref={fillRef}
-                                className="text-5xl md:text-6xl font-[var(--font-bebas)] tracking-[0.08em] leading-none whitespace-nowrap"
+                                className="text-4xl sm:text-5xl md:text-6xl font-[var(--font-bebas)] tracking-[0.08em] leading-none whitespace-nowrap"
                             >
-                                GIBRAN MIKAIL
+                                AGENT G
                             </div>
                         </div>
                     </div>
@@ -141,7 +143,9 @@ const Loader = () => {
                     <div
                         ref={progressRef}
                         className="h-full w-full origin-left relative"
-                        style={{ background: "linear-gradient(to right, oklch(0.7 0.2 45), oklch(0.95 0 0))" }}
+                        style={{
+                            background: "linear-gradient(to right, oklch(0.7 0.2 45), oklch(0.95 0 0))",
+                        }}
                     />
                 </div>
 

@@ -9,12 +9,12 @@ import TestimonialSection from "@/components/modules/testimonial-section";
 import { ContactSection } from "@/components/modules/contact-section";
 import { FooterSection } from "@/components/modules/footer-section";
 import { SideNav } from "@/components/layout/side-nav";
-import Loader from "@/components/layout/loader";
+// import Loader from "@/components/layout/loader";
 
 export default function Page() {
     return (
         <main className="relative min-h-screen">
-            <Loader />
+            {/* <Loader /> */}
             <SideNav />
             <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
 

@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ScrambleTextOnHover } from "@/components/effects/scramble-text";
-import { SplitFlapText, SplitFlapMuteToggle, SplitFlapAudioProvider } from "@/components/effects/split-flap-text";
+import {
+    SplitFlapText,
+    SplitFlapMuteToggle,
+    SplitFlapAudioProvider,
+} from "@/components/effects/split-flap-text";
 import { AnimatedNoise } from "@/components/effects/animated-noise";
 import { BitmapChevron } from "@/components/effects/bitmap-chevron";
 import gsap from "gsap";
@@ -181,7 +185,7 @@ export function HeroSection() {
             {/* Left vertical labels */}
             <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
-                    GIBRAN MIKAIL
+                    G. M.
                 </span>
             </div>
 
@@ -239,7 +243,7 @@ export function HeroSection() {
             {/* Floating info tag */}
             <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
                 <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Version 3.1.0
+                    Version 3.1.1
                 </div>
             </div>
         </section>
