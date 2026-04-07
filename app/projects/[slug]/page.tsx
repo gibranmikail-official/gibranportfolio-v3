@@ -1,10 +1,10 @@
 // app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects";
+import { getProjectBySlug, getAllProjectSlugs } from "@/lib/data/projects";
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectGallery } from "@/components/project-gallery";
+import { ProjectGallery } from "@/components/modules/project-gallery";
 
 interface ProjectPageProps {
     params: {

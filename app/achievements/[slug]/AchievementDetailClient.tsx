@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Achievement } from "@/lib/achievements";
+import { Achievement } from "@/lib/data/achievements";
 import gsap from "gsap";
 import { cn } from "@/lib/utils";
 

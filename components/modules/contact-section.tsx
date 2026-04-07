@@ -260,7 +260,19 @@ export function ContactSection() {
         e.preventDefault();
         setFormStatus("loading");
 
-        setTimeout(() => {
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to send message");
+            }
+
             setFormStatus("success");
             setFormData({
                 name: "",
@@ -271,7 +283,11 @@ export function ContactSection() {
                 message: "",
             });
             setTimeout(() => setFormStatus("idle"), 3000);
-        }, 1500);
+        } catch (error) {
+            console.error(error);
+            setFormStatus("error");
+            setTimeout(() => setFormStatus("idle"), 3000);
+        }
     };
 
     return (
@@ -543,6 +559,8 @@ export function ContactSection() {
                                 "w-full py-3 rounded-lg font-mono text-xs md:text-sm uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2",
                                 formStatus === "loading"
                                     ? "bg-accent/50 cursor-not-allowed"
+                                    : formStatus === "error"
+                                    ? "bg-red-500 hover:bg-red-600 text-white"
                                     : "bg-accent hover:bg-accent/80 text-white hover:scale-[1.02] active:scale-[0.98]",
                             )}
                         >
@@ -573,11 +591,17 @@ export function ContactSection() {
                             {formStatus === "idle" && "Send Message →"}
                             {formStatus === "loading" && "Sending..."}
                             {formStatus === "success" && "Message Sent!"}
+                            {formStatus === "error" && "Error Sending"}
                         </button>
 
                         {formStatus === "success" && (
                             <p className="text-center text-[10px] md:text-xs text-green-500 mt-2 animate-pulse">
                                 ✓ Thank you! I'll get back to you soon.
+                            </p>
+                        )}
+                        {formStatus === "error" && (
+                            <p className="text-center text-[10px] md:text-xs text-red-500 mt-2 animate-pulse">
+                                ✗ Something went wrong. Please try again or email me directly.
                             </p>
                         )}
                     </form>

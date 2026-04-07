@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ScrambleTextOnHover } from "@/components/scramble-text";
-import { SplitFlapText, SplitFlapMuteToggle, SplitFlapAudioProvider } from "@/components/split-flap-text";
-import { AnimatedNoise } from "@/components/animated-noise";
-import { BitmapChevron } from "@/components/bitmap-chevron";
+import { ScrambleTextOnHover } from "@/components/effects/scramble-text";
+import { SplitFlapText, SplitFlapMuteToggle, SplitFlapAudioProvider } from "@/components/effects/split-flap-text";
+import { AnimatedNoise } from "@/components/effects/animated-noise";
+import { BitmapChevron } from "@/components/effects/bitmap-chevron";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -239,7 +239,7 @@ export function HeroSection() {
             {/* Floating info tag */}
             <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
                 <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Version 3.0.1
+                    Version 3.1.0
                 </div>
             </div>
         </section>

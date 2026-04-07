@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { ScrambleTextOnHover } from "@/components/scramble-text";
+import { ScrambleTextOnHover } from "@/components/effects/scramble-text";
 
 gsap.registerPlugin(ScrollTrigger);
 

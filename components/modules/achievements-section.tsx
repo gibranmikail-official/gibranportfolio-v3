@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { achievements, Achievement } from "@/lib/achievements";
+import { achievements, Achievement } from "@/lib/data/achievements";
 
 gsap.registerPlugin(ScrollTrigger);
 

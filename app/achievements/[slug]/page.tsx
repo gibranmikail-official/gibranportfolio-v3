@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getAchievementBySlug, getAllAchievementSlugs } from "@/lib/achievements";
+import { getAchievementBySlug, getAllAchievementSlugs } from "@/lib/data/achievements";
 import { AchievementDetailClient } from "@/app/achievements/[slug]/AchievementDetailClient";
 
 interface AchievementPageProps {

@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SmoothScroll } from "@/components/smooth-scroll";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
