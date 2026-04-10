@@ -18,7 +18,6 @@ export function AchievementDetailClient({ achievement }: AchievementDetailClient
 
     useEffect(() => {
         if (containerRef.current && contentRef.current) {
-            // Entrance animation
             gsap.fromTo(
                 containerRef.current,
                 { opacity: 0 },

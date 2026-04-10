@@ -33,6 +33,7 @@ export function ProjectCard({ project, index, truncateText }: ProjectCardProps) 
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            loading="lazy"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                     </div>

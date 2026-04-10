@@ -300,12 +300,10 @@ export const projects: Project[] = [
     },
 ];
 
-// Helper function to get project by slug
 export function getProjectBySlug(slug: string): Project | undefined {
     return projects.find((project) => project.slug === slug);
 }
 
-// Helper function to get all project slugs for static generation
 export function getAllProjectSlugs(): string[] {
     return projects.map((project) => project.slug);
 }

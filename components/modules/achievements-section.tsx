@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { achievements } from "@/lib/data/achievements";
 import { AchievementCard } from "./achievement-card";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,6 +114,14 @@ export function AchievementsSection() {
                         <AchievementCard achievement={achievement} index={index} />
                     </div>
                 ))}
+            </div>
+
+            {/* Swipe to explore indicator for mobile */}
+            <div className="flex items-center justify-center gap-2 mt-4 sm:hidden animate-pulse">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/60">
+                    Swipe to explore
+                </span>
+                <ArrowRight className="w-3 h-3 text-accent/60" />
             </div>
 
             {/* See More Button */}

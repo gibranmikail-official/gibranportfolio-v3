@@ -104,9 +104,15 @@ const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: an
     }, [trigger, text, speed]);
 
     return (
-        <span className="inline-block">
-            {displayText}
-            {isTyping && <span className="inline-block animate-pulse text-accent ml-0.5">|</span>}
+        <span className="relative inline-block min-h-[1.5em] w-full">
+            {/* Ghost text to reserve space and prevent layout shift */}
+            <span className="invisible pointer-events-none select-none block" aria-hidden="true">
+                {text}
+            </span>
+            <span className="absolute top-0 left-0">
+                {displayText}
+                {isTyping && <span className="inline-block animate-pulse text-accent ml-0.5">|</span>}
+            </span>
         </span>
     );
 };
@@ -340,6 +346,7 @@ export function ContactSection() {
                         <a
                             href="mailto:gibranmikail.business@gmail.com"
                             className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-foreground/80 hover:text-accent transition-colors duration-200 group/link"
+                            aria-label="Email Gibran Mikail at gibranmikail.business@gmail.com"
                             suppressHydrationWarning
                         >
                             <ScrambleTextOnHover
@@ -347,7 +354,7 @@ export function ContactSection() {
                                 as="span"
                                 duration={0.6}
                             />
-                            <FaPaperPlane className="text-xs group-hover/link:translate-x-1 transition-transform duration-200" />
+                            <FaPaperPlane className="text-xs group-hover/link:translate-x-1 transition-transform duration-200" aria-hidden="true" />
                         </a>
                     </div>
 

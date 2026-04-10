@@ -285,7 +285,14 @@ function TestimonialCard({
                 {/* Client Info with Scramble Effect */}
                 <div className="flex items-center gap-4 mb-4">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden bg-accent/10 flex-shrink-0">
-                        <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" />
+                        <Image
+                            src={testimonial.image}
+                            alt={`${testimonial.name}'s profile picture`}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                            loading="lazy"
+                        />
                     </div>
                     <div className="flex-1 min-w-0">
                         <p className="font-mono text-sm font-semibold truncate">

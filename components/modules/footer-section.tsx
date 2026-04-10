@@ -205,7 +205,7 @@ export function FooterSection() {
                         </h4>
                         <div className="flex gap-4">
                             {socialLinks.map((social, index) => {
-                                const Icon = social.icon; // Store in variable for clarity
+                                const Icon = social.icon;
                                 return (
                                     <a
                                         key={index}

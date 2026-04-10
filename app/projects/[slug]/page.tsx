@@ -1,4 +1,3 @@
-// app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/data/projects";
@@ -13,7 +12,6 @@ interface ProjectPageProps {
     };
 }
 
-// Generate static paths at build time
 export async function generateStaticParams() {
     const slugs = getAllProjectSlugs();
     return slugs.map((slug) => ({
@@ -21,7 +19,6 @@ export async function generateStaticParams() {
     }));
 }
 
-// Generate metadata for each project
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
     const project = getProjectBySlug(params.slug);
 

@@ -8,7 +8,6 @@ import { ScrambleTextOnHover } from "@/components/effects/scramble-text";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Type definitions
 type BaseItem = {
     id: string;
     label: string;
@@ -31,7 +30,6 @@ type Experience = BaseItem & {
     responsibilities: string[];
 };
 
-// Type guard functions
 const isEducation = (item: Education | Experience): item is Education => {
     return item.type === "education";
 };
@@ -383,8 +381,11 @@ export default function AboutSection() {
             id="about"
             className="relative py-20 md:py-32 px-4 md:pl-28 md:pr-12 border-t border-border/30 overflow-hidden"
         >
-            {/* Background Running Text */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+            {/* Background Running Text - Hidden from Screen Readers */}
+            <div
+                className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0"
+                aria-hidden="true"
+            >
                 <div className="absolute top-1/2 left-0 w-full whitespace-nowrap opacity-20 -translate-y-1/2">
                     <div className="animate-marquee-right-to-left-slow inline-block font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-accent/30 whitespace-nowrap">
                         UI/UX DESIGN • FRONTEND DEVELOPER • UI/UX DESIGN • FRONTEND DEVELOPER • UI/UX DESIGN •
@@ -419,6 +420,8 @@ export default function AboutSection() {
                                 <button
                                     key={item.id}
                                     onClick={() => handleTabClick(item.id as "about" | "education" | "work")}
+                                    aria-selected={activeTab === item.id}
+                                    role="tab"
                                     className={`group font-mono text-sm py-2 px-3 rounded transition-all duration-200 whitespace-nowrap ${
                                         activeTab === item.id
                                             ? "text-accent border-b-2 border-accent"

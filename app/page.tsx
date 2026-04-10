@@ -1,14 +1,18 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 import { HeroSection } from "@/components/modules/hero-section";
 import { SideNav } from "@/components/layout/side-nav";
 
 // Dynamic imports for below-the-fold content
-const LoadingPlaceholder = () => <div className="min-h-[200px] animate-pulse bg-background/50 rounded-lg" />;
+// Dynamic imports for below-the-fold content with pre-defined heights to minimize CLS
+const LoadingPlaceholder = ({ height = "min-h-[400px]" }: { height?: string }) => (
+    <div className={cn(height, "w-full animate-pulse bg-card/20 rounded-lg border border-border/10")} />
+);
 
 const AboutSection = dynamic(() => import("@/components/modules/about-section"), {
-    loading: () => <div className="min-h-screen animate-pulse bg-background" />,
+    loading: () => <LoadingPlaceholder height="min-h-screen" />,
 });
 const SkillsSection = dynamic(() => import("@/components/modules/skills-section"), {
     loading: () => <LoadingPlaceholder />,

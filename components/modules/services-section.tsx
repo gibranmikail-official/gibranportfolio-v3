@@ -24,7 +24,7 @@ const services = [
     },
     {
         id: "discord",
-        title: "Discord Server Development",
+        title: "Discord Server Dev",
         description:
             "I offer professional and engaging Discord server creation and development services — from channel setup and role management to bot integration and custom design tailored to your community's needs.",
         tags: ["Bot Integration", "Role Management", "Community Setup", "Custom Design"],
@@ -55,25 +55,12 @@ const useGSAPAnimations = (
     sectionRef: React.RefObject<HTMLElement | null>,
     headerRef: React.RefObject<HTMLDivElement | null>,
     gridRef: React.RefObject<HTMLDivElement | null>,
-    setEffectTrigger: React.Dispatch<React.SetStateAction<number>>,
 ) => {
     useEffect(() => {
         if (!sectionRef.current || !headerRef.current || !gridRef.current) return;
 
         const section = sectionRef.current;
         const animations: (gsap.core.Tween | gsap.core.Timeline | ScrollTrigger)[] = [];
-
-        const textTrigger = ScrollTrigger.create({
-            trigger: section,
-            start: "top 80%",
-            onEnter: () => {
-                setEffectTrigger((prev) => prev + 1);
-            },
-            onEnterBack: () => {
-                setEffectTrigger((prev) => prev + 1);
-            },
-        });
-        animations.push(textTrigger);
 
         const headerTimeline = gsap.timeline({
             scrollTrigger: {
@@ -136,7 +123,7 @@ const useGSAPAnimations = (
             });
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, [sectionRef, headerRef, gridRef, setEffectTrigger]);
+    }, [sectionRef, headerRef, gridRef]);
 };
 
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: number; speed?: number }) => {
@@ -181,80 +168,28 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: number; speed?: number }) => {
-    const [displayText, setDisplayText] = useState("");
-    const [isTyping, setIsTyping] = useState(false);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
-    const prevTriggerRef = useRef(trigger);
-
-    useEffect(() => {
-        if (trigger !== prevTriggerRef.current) {
-            prevTriggerRef.current = trigger;
-
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-                intervalRef.current = null;
-            }
-
-            setDisplayText("");
-            setIsTyping(true);
-
-            let index = 0;
-            intervalRef.current = setInterval(() => {
-                if (index < text.length) {
-                    setDisplayText(text.slice(0, index + 1));
-                    index++;
-                } else {
-                    if (intervalRef.current) {
-                        clearInterval(intervalRef.current);
-                        intervalRef.current = null;
-                    }
-                    setIsTyping(false);
-                }
-            }, speed);
-        }
-
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-                intervalRef.current = null;
-            }
-        };
-    }, [trigger, text, speed]);
-
-    return (
-        <span className="inline-block">
-            {displayText}
-            {isTyping && <span className="inline-block animate-pulse text-accent ml-0.5">|</span>}
-        </span>
-    );
-};
-
 export function ServicesSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
-    const [effectTrigger, setEffectTrigger] = useState<number>(0);
-
     useGSAPAnimations(
         sectionRef as React.RefObject<HTMLElement | null>,
         headerRef as React.RefObject<HTMLDivElement | null>,
         gridRef as React.RefObject<HTMLDivElement | null>,
-        setEffectTrigger,
     );
 
     return (
         <section
             id="services"
             ref={sectionRef}
-            className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30"
+            className="relative py-20 md:py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30"
         >
             {/* Section header */}
-            <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
+            <div ref={headerRef} className="mb-10 md:mb-16 pr-6 md:pr-12">
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent block">
                     04 / Services
                 </span>
-                <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
+                <h2 className="mt-4 font-[var(--font-bebas)] text-4xl md:text-7xl tracking-tight">
                     WHAT I OFFER
                 </h2>
             </div>
@@ -262,7 +197,7 @@ export function ServicesSection() {
             {/* Grid container */}
             <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service, index) => (
-                    <ServiceCard key={service.id} service={service} index={index} trigger={effectTrigger} />
+                    <ServiceCard key={service.id} service={service} index={index} />
                 ))}
             </div>
         </section>
@@ -272,7 +207,6 @@ export function ServicesSection() {
 function ServiceCard({
     service,
     index,
-    trigger,
 }: {
     service: {
         title: string;
@@ -280,25 +214,28 @@ function ServiceCard({
         tags: string[];
     };
     index: number;
-    trigger: number;
 }) {
+    const [hoverTrigger, setHoverTrigger] = useState(0);
+
     return (
         <article
+            onMouseEnter={() => setHoverTrigger((prev) => prev + 1)}
+            onClick={() => setHoverTrigger((prev) => prev + 1)}
             className={cn(
-                "group relative",
+                "group relative cursor-pointer",
                 "transition-all duration-500 ease-out",
                 "hover:-translate-y-2 hover:shadow-2xl",
             )}
         >
             {/* Card with paper texture effect */}
-            <div className="relative bg-card border border-border/50 md:border-t md:border-l md:border-r-0 md:border-b-0 p-8 h-full flex flex-col backdrop-blur-sm">
+            <div className="relative bg-card border border-border/40 md:border-border/50 md:border-t md:border-l md:border-r-0 md:border-b-0 p-6 md:p-8 h-full flex flex-col backdrop-blur-sm">
                 {/* Top torn edge effect */}
                 <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
 
                 {/* Issue number - editorial style with decorative slash */}
-                <div className="flex items-baseline justify-between mb-8">
+                <div className="flex items-baseline justify-between mb-6 md:mb-8">
                     <div className="flex items-baseline gap-2">
-                        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/80 md:text-muted-foreground">
                             No. {String(index + 1).padStart(2, "0")}
                         </span>
                         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/40">
@@ -308,16 +245,16 @@ function ServiceCard({
                 </div>
 
                 {/* Title - Scramble Effect */}
-                <h3 className="font-[var(--font-bebas)] text-3xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300">
-                    <ScrambleEffect text={service.title} trigger={trigger} speed={35} />
+                <h3 className="font-[var(--font-bebas)] text-2xl md:text-3xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300">
+                    <ScrambleEffect text={service.title} trigger={hoverTrigger} speed={45} />
                 </h3>
 
                 {/* Divider line */}
                 <div className="w-12 h-px bg-accent/60 mb-6 group-hover:w-full transition-all duration-500" />
 
-                {/* Description - Typing Effect */}
-                <p className="font-mono text-xs text-muted-foreground leading-relaxed mb-6 flex-grow">
-                    <TypingEffect text={service.description} trigger={trigger} speed={15} />
+                {/* Description */}
+                <p className="font-mono text-sm md:text-xs text-foreground/70 md:text-muted-foreground leading-relaxed mb-6 flex-grow">
+                    {service.description}
                 </p>
 
                 {/* Tags */}
@@ -325,7 +262,7 @@ function ServiceCard({
                     {service.tags.map((tag) => (
                         <span
                             key={tag}
-                            className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground/70 bg-accent/5 px-2 py-1 rounded transition-all hover:bg-accent/10"
+                            className="font-mono text-[10px] md:text-[9px] uppercase tracking-wider text-muted-foreground/70 bg-accent/5 px-2 py-1 rounded transition-all hover:bg-accent/10"
                         >
                             {tag}
                         </span>

@@ -21,7 +21,6 @@ const Loader = () => {
             transformOrigin: "center bottom",
         });
 
-        // Teks: "GIBRAN MIKAIL" (Gibran occupies index 0-5, space is 6, Mikail is 7-12)
         fillChars.forEach((span, index) => {
             if (index < 6) {
                 span.style.background = "oklch(0.7 0.2 45)"; // Warna accent (orange)
@@ -93,7 +92,6 @@ const Loader = () => {
             },
         });
 
-        // Prevent scrolling while loader is active
         document.body.style.overflow = "hidden";
 
         return () => {

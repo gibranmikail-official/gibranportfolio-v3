@@ -14,7 +14,7 @@ export interface Achievement {
 }
 
 export const achievements: Achievement[] = [
-    // Real Achievements Data
+    // Achievements Data
     {
         id: "cert1",
         slug: "asia-sistem-indonesia-1",

@@ -5,12 +5,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 
-// Register GSAP plugins
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-// Type definitions
 type SkillCategory = "All" | "Main" | "Frontend" | "Backend" | "Database" | "Tools";
 
 type Skill = {
@@ -52,13 +50,47 @@ const skillsData: Skill[] = [
     { name: "Notion", category: "Tools" },
 ];
 
-// Helper untuk count per category
+const categoryColors: Record<
+    Exclude<SkillCategory, "All">,
+    { text: string; border: string; bg: string; shadow: string }
+> = {
+    Main: {
+        text: "text-amber-400",
+        border: "border-amber-400/30",
+        bg: "hover:bg-amber-400/10",
+        shadow: "from-amber-400/5 to-amber-400/10",
+    },
+    Frontend: {
+        text: "text-cyan-400",
+        border: "border-cyan-400/30",
+        bg: "hover:bg-cyan-400/10",
+        shadow: "from-cyan-400/5 to-cyan-400/10",
+    },
+    Backend: {
+        text: "text-emerald-400",
+        border: "border-emerald-400/30",
+        bg: "hover:bg-emerald-400/10",
+        shadow: "from-emerald-400/5 to-emerald-400/10",
+    },
+    Database: {
+        text: "text-indigo-400",
+        border: "border-indigo-400/30",
+        bg: "hover:bg-indigo-400/10",
+        shadow: "from-indigo-400/5 to-indigo-400/10",
+    },
+    Tools: {
+        text: "text-red-400",
+        border: "border-red-400/30",
+        bg: "hover:bg-red-400/10",
+        shadow: "from-red-400/5 to-red-400/10",
+    },
+};
+
 const getCategoryCount = (category: SkillCategory, allSkills: Skill[]): number => {
     if (category === "All") return allSkills.length;
     return allSkills.filter((skill) => skill.category === category).length;
 };
 
-// Scramble Effect Component
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: number; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -101,7 +133,6 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-// Custom hook untuk GSAP animations
 const useGSAPAnimations = (
     sectionRef: React.RefObject<HTMLElement | null>,
     headerRef: React.RefObject<HTMLDivElement | null>,
@@ -115,8 +146,6 @@ const useGSAPAnimations = (
 
         const section = sectionRef.current;
         const animations: (gsap.core.Tween | gsap.core.Timeline | ScrollTrigger)[] = [];
-
-        // ScrollTrigger untuk efek text trigger
         const textTrigger = ScrollTrigger.create({
             trigger: section,
             start: "top 80%",
@@ -129,7 +158,6 @@ const useGSAPAnimations = (
         });
         animations.push(textTrigger);
 
-        // Header animation with timeline
         const headerTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: headerRef.current,
@@ -153,7 +181,6 @@ const useGSAPAnimations = (
 
         animations.push(headerTimeline);
 
-        // Filter buttons animation
         const filterButtons = filterRef.current.querySelectorAll("button");
         if (filterButtons.length > 0) {
             const filterTimeline = gsap.timeline({
@@ -179,7 +206,6 @@ const useGSAPAnimations = (
             animations.push(filterTimeline);
         }
 
-        // Cleanup function
         return () => {
             animations.forEach((anim) => {
                 if (anim && typeof anim.kill === "function") {
@@ -192,6 +218,8 @@ const useGSAPAnimations = (
 };
 
 const SkillItem = ({ skill, index, trigger }: { skill: Skill; index: number; trigger: number }) => {
+    const colors = categoryColors[skill.category];
+
     return (
         <div
             className={cn(
@@ -203,9 +231,11 @@ const SkillItem = ({ skill, index, trigger }: { skill: Skill; index: number; tri
             <div
                 className={cn(
                     "flex items-center gap-3 font-mono text-sm uppercase tracking-wider",
-                    "px-4 py-2 rounded-md border border-border/50 bg-card",
+                    "px-4 py-2 rounded-md border bg-card/80",
+                    colors.border,
+                    colors.text,
                     "transition-all duration-300 ease-out",
-                    "hover:bg-accent/10 hover:border-accent/50",
+                    colors.bg,
                     "cursor-default backdrop-blur-sm",
                 )}
             >
@@ -214,7 +244,12 @@ const SkillItem = ({ skill, index, trigger }: { skill: Skill; index: number; tri
                 </span>
             </div>
             {/* Shadow/depth layer */}
-            <div className="absolute inset-0 -z-10 translate-x-0.5 translate-y-0.5 bg-gradient-to-br from-accent/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md" />
+            <div
+                className={cn(
+                    "absolute inset-0 -z-10 translate-x-0.5 translate-y-0.5 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md",
+                    colors.shadow,
+                )}
+            />
         </div>
     );
 };
@@ -243,7 +278,7 @@ const CategoryFilter = ({
     };
 
     return (
-        <div className="flex flex-wrap gap-4 mb-12">
+        <div className="flex flex-wrap gap-4 mb-12" role="tablist" aria-label="Skill categories">
             {categories.map((cat, idx) => {
                 const count = getCategoryCount(cat, skills);
                 const isActive = activeCategory === cat;
@@ -258,6 +293,9 @@ const CategoryFilter = ({
                         }}
                         onClick={() => onSelect(cat)}
                         onMouseEnter={() => handleHover(cat)}
+                        role="tab"
+                        aria-selected={isActive}
+                        aria-controls="skills-grid"
                         className={cn(
                             "font-mono text-xs uppercase tracking-[0.3em] px-5 py-2.5",
                             "border transition-all duration-300 ease-out",
@@ -375,6 +413,10 @@ export const SkillsSection = () => {
                 {/* Skills Grid */}
                 <div
                     ref={skillsContainerRef}
+                    id="skills-grid"
+                    role="region"
+                    aria-live="polite"
+                    aria-label={`${activeCategory} skills`}
                     className={cn(
                         "flex flex-wrap gap-4 transition-all duration-500 ease-out",
                         isAnimating && "pointer-events-none",

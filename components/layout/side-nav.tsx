@@ -54,6 +54,8 @@ export function SideNav() {
                         key={id}
                         onClick={() => scrollToSection(id)}
                         className="group relative flex items-center gap-3"
+                        aria-label={`Scroll to ${label} section`}
+                        aria-current={activeSection === id ? "true" : undefined}
                     >
                         <span
                             className={cn(

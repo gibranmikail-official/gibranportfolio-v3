@@ -14,7 +14,7 @@ export function usePerformance() {
         const handleChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
         mql.addEventListener("change", handleChange);
 
-        // Detect low power / data saver mode (where supported)
+        // Detect low power / data saver mode
         if ("connection" in navigator) {
             const conn = (navigator as any).connection;
             if (conn.saveData) {
