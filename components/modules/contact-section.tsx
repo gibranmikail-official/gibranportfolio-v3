@@ -181,6 +181,7 @@ export function ContactSection() {
     const headerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const [effectTrigger, setEffectTrigger] = useState(0);
     const [formData, setFormData] = useState({
         name: "",
@@ -270,7 +271,9 @@ export function ContactSection() {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to send message");
+                const errorData = await response.json();
+                setErrorMessage(errorData.error || "Failed to send message");
+                throw new Error(errorData.error || "Failed to send message");
             }
 
             setFormStatus("success");
@@ -601,7 +604,7 @@ export function ContactSection() {
                         )}
                         {formStatus === "error" && (
                             <p className="text-center text-[10px] md:text-xs text-red-500 mt-2 animate-pulse">
-                                ✗ Something went wrong. Please try again or email me directly.
+                                ✗ {errorMessage || "Something went wrong. Please try again or email me directly."}
                             </p>
                         )}
                     </form>

@@ -184,8 +184,6 @@ export function HeroSection() {
         >
             <AnimatedNoise opacity={0.03} />
 
-
-
             {/* Main content */}
             <div ref={contentRef} className="flex-1 w-full">
                 <SplitFlapAudioProvider>
@@ -240,7 +238,7 @@ export function HeroSection() {
             {/* Floating info tag */}
             <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
                 <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Version 3.1.1
+                    Version 3.2.0
                 </div>
             </div>
         </section>
