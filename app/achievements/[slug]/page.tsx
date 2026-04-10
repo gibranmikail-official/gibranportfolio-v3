@@ -9,7 +9,6 @@ interface AchievementPageProps {
     };
 }
 
-// Generate static paths at build time
 export async function generateStaticParams() {
     const slugs = getAllAchievementSlugs();
     return slugs.map((slug) => ({
@@ -17,7 +16,6 @@ export async function generateStaticParams() {
     }));
 }
 
-// Generate metadata for each achievement
 export async function generateMetadata({ params }: AchievementPageProps): Promise<Metadata> {
     const achievement = getAchievementBySlug(params.slug);
 
@@ -41,7 +39,6 @@ export async function generateMetadata({ params }: AchievementPageProps): Promis
 export default function AchievementPage({ params }: AchievementPageProps) {
     const achievement = getAchievementBySlug(params.slug);
 
-    // Return 404 if achievement not found
     if (!achievement) {
         notFound();
     }

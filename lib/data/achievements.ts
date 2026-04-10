@@ -92,12 +92,10 @@ export const achievements: Achievement[] = [
     },
 ];
 
-// Helper function to get achievement by slug
 export function getAchievementBySlug(slug: string): Achievement | undefined {
     return achievements.find((achievement) => achievement.slug === slug);
 }
 
-// Helper function to get all achievement slugs for static generation
 export function getAllAchievementSlugs(): string[] {
     return achievements.map((achievement) => achievement.slug);
 }

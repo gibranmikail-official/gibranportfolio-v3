@@ -9,13 +9,20 @@ const ibmPlexSans = IBM_Plex_Sans({
     weight: ["400", "500", "600", "700"],
     subsets: ["latin"],
     variable: "--font-ibm-plex-sans",
+    display: "swap",
 });
 const ibmPlexMono = IBM_Plex_Mono({
     weight: ["400", "500"],
     subsets: ["latin"],
     variable: "--font-ibm-plex-mono",
+    display: "swap",
 });
-const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" });
+const bebasNeue = Bebas_Neue({
+    weight: "400",
+    subsets: ["latin"],
+    variable: "--font-bebas",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Gibran Mikail - Portfolio",
@@ -25,18 +32,17 @@ export const metadata: Metadata = {
         icon: [
             {
                 url: "/icon.png",
-                media: "(prefers-color-scheme: light)",
-            },
-            {
-                url: "/icon.png",
-                media: "(prefers-color-scheme: dark)",
-            },
-            {
-                url: "/icon.png",
-                type: "image/svg+xml",
+                sizes: "32x32",
+                type: "image/png",
             },
         ],
-        apple: "/apple-icon.png",
+        apple: [
+            {
+                url: "/apple-icon.png",
+                sizes: "180x180",
+                type: "image/png",
+            },
+        ],
     },
 };
 

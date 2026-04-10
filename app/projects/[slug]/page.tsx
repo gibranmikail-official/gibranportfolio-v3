@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/data/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { BackButton } from "@/components/layout/back-button";
 import { ProjectGallery } from "@/components/modules/project-gallery";
 
 interface ProjectPageProps {
@@ -49,25 +50,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {/* Back Button */}
             <div className="sticky top-0 z-10 bg-background/80 backdrop-blur-sm border-b border-border/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <Link
-                        href="/#projects"
-                        className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-accent transition-colors group"
-                    >
-                        <svg
-                            className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                            />
-                        </svg>
-                        Back to Projects
-                    </Link>
+                    <BackButton href="/projects" label="Back to Projects" />
                 </div>
             </div>
 

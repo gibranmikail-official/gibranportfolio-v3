@@ -51,7 +51,6 @@ const services = [
     },
 ];
 
-// Custom hook untuk GSAP animations
 const useGSAPAnimations = (
     sectionRef: React.RefObject<HTMLElement | null>,
     headerRef: React.RefObject<HTMLDivElement | null>,
@@ -64,7 +63,6 @@ const useGSAPAnimations = (
         const section = sectionRef.current;
         const animations: (gsap.core.Tween | gsap.core.Timeline | ScrollTrigger)[] = [];
 
-        // 1. ScrollTrigger untuk efek text
         const textTrigger = ScrollTrigger.create({
             trigger: section,
             start: "top 80%",
@@ -77,7 +75,6 @@ const useGSAPAnimations = (
         });
         animations.push(textTrigger);
 
-        // 2. Header animation dengan timeline
         const headerTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: headerRef.current,
@@ -101,7 +98,6 @@ const useGSAPAnimations = (
 
         animations.push(headerTimeline);
 
-        // 3. Cards animation dengan timeline
         const cards = gridRef.current.querySelectorAll("article");
         if (cards.length > 0) {
             const cardsTimeline = gsap.timeline({
@@ -132,7 +128,6 @@ const useGSAPAnimations = (
             animations.push(cardsTimeline);
         }
 
-        // Cleanup function
         return () => {
             animations.forEach((anim) => {
                 if (anim && typeof anim.kill === "function") {
@@ -144,7 +139,6 @@ const useGSAPAnimations = (
     }, [sectionRef, headerRef, gridRef, setEffectTrigger]);
 };
 
-// Scramble Effect Component
 const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: number; speed?: number }) => {
     const [displayText, setDisplayText] = useState(text);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -187,7 +181,6 @@ const ScrambleEffect = ({ text, trigger, speed = 30 }: { text: string; trigger: 
     return <>{displayText}</>;
 };
 
-// Typing Effect Component
 const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: number; speed?: number }) => {
     const [displayText, setDisplayText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -237,12 +230,11 @@ const TypingEffect = ({ text, trigger, speed = 20 }: { text: string; trigger: nu
     );
 };
 
-// Main Component
 export function ServicesSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
-    const [effectTrigger, setEffectTrigger] = useState<number>(0); // ✅ Fixed: added initial value
+    const [effectTrigger, setEffectTrigger] = useState<number>(0);
 
     useGSAPAnimations(
         sectionRef as React.RefObject<HTMLElement | null>,
@@ -277,7 +269,6 @@ export function ServicesSection() {
     );
 }
 
-// Service Card Component
 function ServiceCard({
     service,
     index,

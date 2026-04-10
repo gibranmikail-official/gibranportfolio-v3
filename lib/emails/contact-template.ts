@@ -1,117 +1,118 @@
 export function ContactEmailTemplate({
-  name,
-  email,
-  organisation,
-  phone,
-  subject,
-  message,
+    name,
+    email,
+    organisation,
+    phone,
+    subject,
+    message,
 }: {
-  name: string;
-  email: string;
-  organisation: string;
-  phone: string;
-  subject: string;
-  message: string;
+    name: string;
+    email: string;
+    organisation: string;
+    phone: string;
+    subject: string;
+    message: string;
 }) {
-  return `
-<!DOCTYPE html>
-<html lang="en">
+    return `
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Contact Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>New Contact Form Submission</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #0A0A0A; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; color: #E5E5E5;">
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0A0A0A; padding: 40px 20px;">
-    <tr>
-      <td align="center">
-        <!-- Main Card -->
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%; background-color: #121212; border: 1px solid #262626; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.6);">
-          
-          <!-- Header -->
-          <tr>
-            <td style="padding: 35px 30px; text-align: center; border-bottom: 1px solid #262626; background-color: #18181A;">
-              <h1 style="margin: 0; font-size: 24px; color: #eb8424; font-weight: bold; letter-spacing: 0.5px;">New Contact Form Submission</h1>
-              <p style="margin: 10px 0 0 0; font-size: 14px; color: #A3A3A3;">Website Notification</p>
-            </td>
-          </tr>
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 40px 0 40px 0;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td align="left" style="padding: 40px 40px 20px 40px; background-color: #ffffff;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="width: 4px; background-color: #ea580c; border-radius: 4px;">&nbsp;</td>
+                                    <td style="padding-left: 15px;">
+                                        <h1 style="color: #ea580c; font-size: 24px; margin: 0; font-weight: 700; letter-spacing: -0.025em;">New Contact Form Submission</h1>
+                                        <p style="color: #6b7280; font-size: 14px; margin: 5px 0 0 0;">Received from GGENK website</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-          <!-- Personal Info -->
-          <tr>
-            <td style="padding: 30px 30px 20px 30px;">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td style="padding-bottom: 20px;">
-                    <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Name</span><br>
-                    <strong style="font-size: 16px; color: #FFFFFF; display: block; margin-top: 6px;">${name}</strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding-bottom: 20px;">
-                    <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Email</span><br>
-                    <a href="mailto:${email}" style="font-size: 16px; color: #eb8424; text-decoration: none; display: block; margin-top: 6px; font-weight: bold;">${email}</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding-bottom: 20px;">
-                    <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Organisation</span><br>
-                    <span style="font-size: 16px; color: #E5E5E5; display: block; margin-top: 6px;">${organisation || 'N/A'}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding-bottom: 10px;">
-                    <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Phone</span><br>
-                    <span style="font-size: 16px; color: #E5E5E5; display: block; margin-top: 6px;">${phone || 'N/A'}</span>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+                    <!-- User Info Section -->
+                    <tr>
+                        <td style="padding: 20px 40px 20px 40px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #fcfcfc; border: 1px solid #f3f4f6; border-radius: 12px; padding: 20px;">
+                                <tr>
+                                    <td style="padding-bottom: 15px;">
+                                        <div style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">From</div>
+                                        <div style="color: #111827; font-size: 16px; font-weight: 700;">\${name}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-bottom: 15px;">
+                                        <div style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">Email</div>
+                                        <div><a href="mailto:\${email}" style="color: #ea580c; font-size: 15px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(234, 88, 12, 0.2);">\${email}</a></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td width="50%" style="vertical-align: top;">
+                                                    <div style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">Organisation</div>
+                                                    <div style="color: #374151; font-size: 14px;">\${organisation || 'Not specified'}</div>
+                                                </td>
+                                                <td width="50%" style="vertical-align: top;">
+                                                    <div style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">Phone</div>
+                                                    <div style="color: #374151; font-size: 14px;">\${phone || 'Not specified'}</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-          <!-- Divider -->
-          <tr>
-            <td style="padding: 0 30px;">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td style="border-top: 1px solid #262626;"></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+                    <!-- Subject Section -->
+                    <tr>
+                        <td style="padding: 10px 40px 10px 40px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 12px 20px; background-color: rgba(234, 88, 12, 0.05); border-left: 3px solid #ea580c; border-radius: 4px;">
+                                        <span style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 2px;">Subject</span>
+                                        <span style="color: #ea580c; font-size: 15px; font-weight: 700;">\${subject}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-          <!-- Subject -->
-          <tr>
-            <td style="padding: 25px 30px 10px 30px;">
-              <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Subject</span><br>
-              <h2 style="margin: 8px 0 0 0; font-size: 18px; color: #eb8424; font-weight: 600;">${subject}</h2>
-            </td>
-          </tr>
+                    <!-- Message Section -->
+                    <tr>
+                        <td style="padding: 20px 40px 40px 40px;">
+                            <div style="color: #9ca3af; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; margin-left: 4px;">Message Content</div>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f3f4f6; border-radius: 12px;">
+                                <tr>
+                                    <td style="padding: 25px; color: #374151; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">\${message}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-          <!-- Message -->
-          <tr>
-            <td style="padding: 10px 30px 35px 30px;">
-              <span style="font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 1px;">Message</span><br>
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 12px; background-color: #0A0A0A; border: 1px solid #262626; border-radius: 8px;">
-                <tr>
-                  <td style="padding: 20px; font-size: 15px; color: #D4D4D4; line-height: 1.7; white-space: pre-wrap; font-family: Arial, Helvetica, sans-serif;">${message}</td>
-                </tr>
-              </table>
+                    <!-- Footer -->
+                    <tr>
+                        <td align="center" style="padding: 0 40px 40px 40px;">
+                            <p style="color: #9ca3af; font-size: 12px; margin: 0; line-height: 1.5;">This message was sent securely from GGENK website contact form.<br/>&copy; 2026 GGENK Community. All rights reserved.</p>
+                        </td>
+                    </tr>
+                </table>
             </td>
-          </tr>
-
-        </table>
-
-        <!-- Footer -->
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%; margin-top: 24px;">
-          <tr>
-            <td align="center" style="font-size: 13px; color: #525252;">
-              This message was sent from gibranmikail.my.id
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+        </tr>
+    </table>
 </body>
 </html>
   `;

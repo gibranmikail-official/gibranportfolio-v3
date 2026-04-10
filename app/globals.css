@@ -137,3 +137,12 @@
     background: oklch(0.7 0.2 45);
     color: oklch(0.08 0 0);
 }
+
+/* Utility to hide scrollbar while keeping scroll functionality */
+@utility scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+}

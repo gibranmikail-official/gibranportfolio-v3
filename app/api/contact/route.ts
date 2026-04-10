@@ -3,7 +3,6 @@ import nodemailer from 'nodemailer';
 import { ContactEmailTemplate } from '@/lib/emails/contact-template';
 
 export async function POST(request: Request) {
-    // Reverting to secure process.env system
     const EMAIL_USER = process.env.EMAIL_USER;
     const EMAIL_PASS = process.env.EMAIL_PASS;
 
@@ -11,7 +10,6 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { name, organisation, email, phone, subject, message } = body;
 
-        // Security Check: Ensure Netlify has the variables
         if (!EMAIL_USER || !EMAIL_PASS) {
             console.error('ERROR: Missing EMAIL_USER or EMAIL_PASS in environment variables.');
             return NextResponse.json(

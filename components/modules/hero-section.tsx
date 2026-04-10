@@ -9,6 +9,7 @@ import {
 } from "@/components/effects/split-flap-text";
 import { AnimatedNoise } from "@/components/effects/animated-noise";
 import { BitmapChevron } from "@/components/effects/bitmap-chevron";
+import { usePerformance } from "@/hooks/use-performance";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -113,6 +114,7 @@ export function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [effectTrigger, setEffectTrigger] = useState(0);
+    const { shouldReduceMotion } = usePerformance();
 
     const socialLinks = [
         {
@@ -154,7 +156,7 @@ export function HeroSection() {
         });
 
         const ctx = gsap.context(() => {
-            if (contentRef.current) {
+            if (contentRef.current && !shouldReduceMotion) {
                 gsap.to(contentRef.current, {
                     y: -100,
                     opacity: 0,
@@ -182,12 +184,7 @@ export function HeroSection() {
         >
             <AnimatedNoise opacity={0.03} />
 
-            {/* Left vertical labels */}
-            <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
-                    G. M.
-                </span>
-            </div>
+
 
             {/* Main content */}
             <div ref={contentRef} className="flex-1 w-full">

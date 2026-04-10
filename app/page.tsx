@@ -1,15 +1,45 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/modules/hero-section";
-import AboutSection from "@/components/modules/about-section";
-import SkillsSection from "@/components/modules/skills-section";
-import { AchievementsSection } from "@/components/modules/achievements-section";
-import { ServicesSection } from "@/components/modules/services-section";
-import { ProjectSection } from "@/components/modules/project-section";
-import { PrinciplesSection } from "@/components/modules/principles-section";
-import TestimonialSection from "@/components/modules/testimonial-section";
-import { ContactSection } from "@/components/modules/contact-section";
-import { FooterSection } from "@/components/modules/footer-section";
 import { SideNav } from "@/components/layout/side-nav";
-// import Loader from "@/components/layout/loader";
+
+// Dynamic imports for below-the-fold content
+const LoadingPlaceholder = () => <div className="min-h-[200px] animate-pulse bg-background/50 rounded-lg" />;
+
+const AboutSection = dynamic(() => import("@/components/modules/about-section"), {
+    loading: () => <div className="min-h-screen animate-pulse bg-background" />,
+});
+const SkillsSection = dynamic(() => import("@/components/modules/skills-section"), {
+    loading: () => <LoadingPlaceholder />,
+});
+const AchievementsSection = dynamic(
+    () => import("@/components/modules/achievements-section").then((mod) => mod.AchievementsSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
+const ServicesSection = dynamic(
+    () => import("@/components/modules/services-section").then((mod) => mod.ServicesSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
+const ProjectSection = dynamic(
+    () => import("@/components/modules/project-section").then((mod) => mod.ProjectSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
+const PrinciplesSection = dynamic(
+    () => import("@/components/modules/principles-section").then((mod) => mod.PrinciplesSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
+const TestimonialSection = dynamic(() => import("@/components/modules/testimonial-section"), {
+    loading: () => <LoadingPlaceholder />,
+});
+const ContactSection = dynamic(
+    () => import("@/components/modules/contact-section").then((mod) => mod.ContactSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
+const FooterSection = dynamic(
+    () => import("@/components/modules/footer-section").then((mod) => mod.FooterSection),
+    { loading: () => <LoadingPlaceholder /> },
+);
 
 export default function Page() {
     return (
